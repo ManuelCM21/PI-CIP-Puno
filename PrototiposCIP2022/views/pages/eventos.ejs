@@ -5,9 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
-    <title>Soft UI Dashboard Tailwind</title>
+    <link rel="icon" type="image/png" href="../img/ciplogo.png" />
+    <title>Portal | CIP CD Puno</title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
@@ -18,7 +17,7 @@
 
 </head>
 
-<body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-50 text-slate-900">
+<body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-200 text-slate-900">
 
     <%- include('../nav/navbar-evento'); %>
 
@@ -61,7 +60,9 @@
                                 <a href="../pages/sign-in.html"
                                     class="block px-0 py-2 font-semibold transition-all ease-nav-brand text-size-sm text-slate-500">
                                     <i class="fa fa-user sm:mr-1"></i>
-                                    <span class="hidden sm:inline"><%= locals.rol %></span>
+                                    <span class="hidden sm:inline">
+                                        <%= locals.rol %>
+                                    </span>
                                 </a>
                             </li>
                             <li class="flex items-center pl-4 xl:hidden">
@@ -197,13 +198,13 @@
                             <div
                                 class="w-full pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-2xl border-b-transparent">
                                 <%- include('../partials/p-evento'); %>
-                                <div
-                                    class="px-3 py-2 flex justify-center leading-loose lg:w-full md:w-full sm:w-full w-full">
-                                    <a href="/sub-page/crear-evento"
-                                        class="flex my-4 text-white font-light tracking-wider rounded-xl shadow-soft-2xl"
-                                        style="background-color: black; padding: 10px;">
-                                        <img src="../img/crear.png" width="30" class="mr-1">Crear evento</a>
-                                </div>
+                                    <div
+                                        class="px-3 py-2 flex justify-center leading-loose lg:w-full md:w-full sm:w-full w-full">
+                                        <a href="/sub-page/crear-evento"
+                                            class="flex my-4 text-white font-light tracking-wider rounded-xl shadow-soft-2xl"
+                                            style="background-color: black; padding: 10px;">
+                                            <img src="../img/crear.png" width="30" class="mr-1">Crear evento</a>
+                                    </div>
                             </div>
                         </div>
                     </div>
