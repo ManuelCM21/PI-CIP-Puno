@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link href="../assets/css/styles.css?v=1.0.3" rel="stylesheet" />
+    
+</head>
+
+<body>
+    <div class="flex-auto pb-2">
+        <div class="flex flex-col p-0 overflow-x-auto">
+            <div class=" w-full" style="height: 340px; ">
+                <div class="border-b border-gray-200 shadow" >
+            
+                    <% if(data.length) { %>
+                        <table class="w-full align-top border-gray-200 text-slate-600" >
+                            <thead class="bg-gray-50 align-bottom">
+                                <tr class="bg-black">
+                                    <th class="px-3 py-2 text-white scope=" col">#</th>
+                                    <th class="px-3 py-2 text-white scope=" col">Nombre del evento</th>
+                                    <th class="px-3 py-2 text-white scope=" col">Fecha</th>
+                                    <th class="px-3 py-2 text-white scope=" col">Modalidad</th>
+                                    <th class="px-3 py-2 text-white width=" col">Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-300">
+                                <% for(var i=0; i< data.length; i++) { %>
+                                    <tr class="whitespace-nowrap">
+                                        <th class="px-3 py-4 text-gray-500" scope="row">
+                                            <%= (i+1) %>
+                                        </th>
+                                        <td class="px-3 py-4">
+                                            <%= data[i].nombre%>
+                                        </td>
+                                        <td class="px-3 py-4">
+                                            <%= data[i].fecha%>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <%= data[i].modalidad%>
+                                        </td>
+                                        <td class="px-3 py-4">
+                                            <a class="px-2 py-2 text-sm text-white rounded-xl" style="background-color: rgb(16, 137, 38);" href="/web/edit/ <%=data[i].id%> ">Edit</a>
+                                            <a class="px-2 py-2 text-sm text-white rounded-xl" style="background-color: rgb(188, 13, 13);" onclick="return confirm('Estas seguro de eliminar?')"
+                                                href="/web/delete/ <%=data[i].id%> ">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+                        <% } %>
+            
+                            <!-- if result is empty -->
+                            <% if(!data.length) { %>
+                                <p class="text-center">No book found!</p>
+                                <% } %>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
