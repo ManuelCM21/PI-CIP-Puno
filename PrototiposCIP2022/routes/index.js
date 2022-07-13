@@ -28,6 +28,7 @@ router.post('/main', function (req, res, next) {
       if (rows.length) {
         console.log(rows);
         req.session.idu = rows[0]["id"];
+        req.session.nombre = rows[0]["nombre"];
         req.session.email = rows[0]["email"];
         req.session.rol = rows[0]["rol"];
         req.session.loggedin = true;
@@ -71,9 +72,18 @@ router.get('/pages/solicitudes', function (req, res, next) {
 });
 
 router.get('/pages/capacitaciones', function (req, res, next) {
-  res.locals.email = req.session.email;
-  res.locals.rol = req.session.rol;
-  res.render('pages/capacitaciones');
+
+  dbConn.query('SELECT * FROM eventos', function (err, rows) {
+
+    if (err) {
+      req.flash('error', err);
+      res.render('pages/capacitaciones', { data: '' });
+    } else {
+      res.locals.email = req.session.email;
+      res.locals.rol = req.session.rol;
+      res.render('pages/capacitaciones', { data: rows });
+    }
+  });
 });
 
 router.get('/pages/pagos', function (req, res, next) {
@@ -89,11 +99,13 @@ router.get('/pages/notificacion', function (req, res, next) {
 });
 
 router.get('/pages/calendario', function (req, res, next) {
+  res.locals.email = req.session.email;
   res.locals.rol = req.session.rol;
   res.render('pages/calendario');
 });
 
 router.get('/pages/perfil', function (req, res, next) {
+  res.locals.nombre = req.session.nombre;
   res.locals.email = req.session.email;
   res.locals.rol = req.session.rol;
   res.render('pages/perfil');

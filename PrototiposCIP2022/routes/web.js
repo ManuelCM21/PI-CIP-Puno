@@ -126,6 +126,10 @@ router.get('/edit/(:id)', function (req, res, next) {
 
     let id = req.params.id;
 
+    res.locals.nombre = req.session.nombre;
+    res.locals.email = req.session.email;
+    res.locals.rol = req.session.rol;
+
     dbConn.query('SELECT * FROM eventos WHERE id = ' + id, function (err, rows, fields) {
 
         console.log(rows[0]);
@@ -154,6 +158,10 @@ router.get('/edit/(:id)', function (req, res, next) {
 
 // update evento
 router.post('/update/(:id)', function (req, res, next) {
+
+    res.locals.nombre = req.session.nombre;
+    res.locals.email = req.session.email;
+    res.locals.rol = req.session.rol;
 
     console.log(req.body);
     let id = req.params.id;

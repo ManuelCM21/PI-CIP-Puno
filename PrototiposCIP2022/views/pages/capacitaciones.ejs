@@ -1,3 +1,17 @@
+<!--
+=========================================================
+* Soft UI Dashboard Tailwind - v1.0.3
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-tailwind
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +32,7 @@
   <link href="../assets/css/styles.css?v=1.0.3" rel="stylesheet" />
 </head>
 
-<body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-200 text-slate-500">
+<body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-50 text-slate-500">
 
   <%- include('../nav/navbar-capacitacion'); %>
 
@@ -179,85 +193,17 @@
       </nav>
 
       <div class="w-full px-6 py-6 mx-auto">
-        <div class="flex flex-wrap -mx-3">
+
+        <div class="flex flex-wrap -mx-3 max-h-screen">
           <div class="flex-none w-full max-w-full px-3">
             <div
-              class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
-              <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                <h6>Projects table</h6>
-              </div>
+              class="p-4 pl-2 pr-0 relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
 
-              <div class="flex-auto px-0 pt-0 pb-2 pl-2 pr-2">
-                <form action="" method="post">
-                  <div class="p-5 overflow-x-auto">
-                    <div class="mt-4">
-                      <label class="block text-sm text-gray-600" for="email">Descripcion:</label>
-                      <input class="w-full p-2 text-gray-700 bg-gray-200 rounded-xl" id="email" name="descripcion"
-                        type="text" required="">
-                    </div>
-                    <div class="mt-4">
-                      <label class="block text-sm text-gray-600" for="email">Modalidad:</label>
-                      <input class="w-full p-2 text-gray-700 bg-gray-200 rounded-xl" id="email" name="modalidad"
-                        type="text" required="">
-                    </div>
-                    <div class="mt-4">
-                      <label class="block text-sm text-gray-600" for="email">Duracion:</label>
-                      <input class="w-full p-2 text-gray-700 bg-gray-200 rounded-xl" id="email" name="duracion"
-                        type="text" required="">
-                    </div>
-                    <div class="mt-4">
-                      <label class="block text-sm text-gray-600" for="email">Costo:</label>
-                      <input class="w-full p-2 text-gray-700 bg-gray-200 rounded-xl" id="email" name="costo" type="text"
-                        required="">
-                    </div>
-                  </div>
-                </form>
-              </div>
+                <%- include('../partials/p-capacitacion'); %>
+
             </div>
           </div>
         </div>
-        <footer class="pt-4">
-          <div class="w-full px-6 mx-auto">
-            <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
-              <div class="w-full max-w-full px-3 mt-0 mb-6 shrink-0 lg:mb-0 lg:w-1/2 lg:flex-none">
-                <div class="leading-normal text-center text-size-sm text-slate-500 lg:text-left">
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear() + ",");
-                  </script>
-                  made with <i class="fa fa-heart"></i> by
-                  <a href="https://www.creative-tim.com" class="font-semibold text-slate-700" target="_blank">Creative
-                    Tim</a>
-                  for a better web.
-                </div>
-              </div>
-              <div class="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">
-                <ul class="flex flex-wrap justify-center pl-0 mb-0 list-none lg:justify-end">
-                  <li class="nav-item">
-                    <a href="https://www.creative-tim.com"
-                      class="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-size-sm text-slate-500"
-                      target="_blank">Creative Tim</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="https://www.creative-tim.com/presentation"
-                      class="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-size-sm text-slate-500"
-                      target="_blank">About Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="https://creative-tim.com/blog"
-                      class="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-size-sm text-slate-500"
-                      target="_blank">Blog</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="https://www.creative-tim.com/license"
-                      class="block px-4 pt-0 pb-1 pr-0 font-normal transition-colors ease-soft-in-out text-size-sm text-slate-500"
-                      target="_blank">License</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </main>
     <div fixed-plugin>
@@ -355,8 +301,6 @@
     </div>
     </div>
 </body>
-<!-- plugin for scrollbar  -->
-<script src="../assets/js/plugins/perfect-scrollbar.min.js" async></script>
 <!-- github button -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- main script file  -->
