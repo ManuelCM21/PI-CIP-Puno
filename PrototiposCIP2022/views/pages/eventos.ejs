@@ -14,6 +14,7 @@
     <!-- Nucleo Icons -->
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <link href="../assets/css/styles.css?v=1.0.3" rel="stylesheet" />
+    <link rel='stylesheet' href='/stylesheets/tailwind.css' />
 
 </head>
 
@@ -24,7 +25,7 @@
         <main class="ease-soft-in-out xl:ml-68.5 relative max-h-screen rounded-xl transition-all duration-200">
             <!-- Navbar -->
             <nav class="flex flex-wrap items-center justify-between px-0 py-2 mx-6 mt-4 transition-all duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start sticky top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px] bg-[hsla(0,0%,100%,0.8)] shadow-blur z-110"
-                navbar-main navbar-scroll="true">
+                navbar-main >
                 <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
                     <nav>
                         <!-- breadcrumb -->
@@ -52,10 +53,7 @@
                             </div>
                         </div>
                         <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
-                            <!-- online builder btn  -->
-                            <!-- <li class="flex items-center">
-                <a class="inline-block px-8 py-2 mb-0 mr-4 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro border-fuchsia-500 ease-soft-in text-size-xs hover:scale-102 active:shadow-soft-xs text-fuchsia-500 hover:border-fuchsia-500 active:bg-fuchsia-500 active:hover:text-fuchsia-500 hover:text-fuchsia-500 tracking-tight-soft hover:bg-transparent hover:opacity-75 hover:shadow-none active:text-white active:hover:bg-transparent" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard&amp;_ga=2.76518741.1192788655.1647724933-1242940210.1644448053">Online Builder</a>
-              </li> -->
+
                             <li class="flex items-center">
                                 <a href="../pages/sign-in.html"
                                     class="block px-0 py-2 font-semibold transition-all ease-nav-brand text-size-sm text-slate-500">
@@ -196,14 +194,18 @@
                         <div
                             class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-2xl rounded-2xl bg-clip-border">
                             <div
-                                class="w-full pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-2xl border-b-transparent">
+                                class="w-full bg-white border-b-0 border-b-solid rounded-2xl border-b-transparent">
+                                <div class="px-3 py-2 flex justify-center lg:w-full md:w-full sm:w-full w-full">
+                                    <p class="text-black m-0">Lista de Eventos Disponibles</p>
+                                </div>
                                 <%- include('../partials/p-evento'); %>
                                     <div
-                                        class="px-3 py-2 flex justify-center leading-loose lg:w-full md:w-full sm:w-full w-full">
+                                        class="px-6 py-2 flex justify-end leading-loose lg:w-full md:w-full sm:w-full w-full">
                                         <a href="/sub-page/crear-evento"
-                                            class="flex my-4 text-white font-light tracking-wider rounded-xl shadow-soft-2xl"
+                                            class="flex mb-2 text-white tracking-wider rounded-xl shadow-soft-2xl"
                                             style="background-color: black; padding: 10px;">
-                                            <img src="../img/crear.png" width="30" class="mr-1">Crear evento</a>
+                                            <img src="../img/crear.png" width="30" class="mr-1">
+                                            <span class="mt-1 mr-1">Crear evento</span> </a>
                                     </div>
                             </div>
                         </div>
@@ -291,7 +293,7 @@
                     <a class="inline-block w-full px-6 py-3 mb-4 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer active:shadow-soft-xs hover:scale-102 active:opacity-85 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 border-slate-700 text-slate-700 hover:bg-transparent hover:text-slate-700 hover:shadow-none active:bg-slate-700 active:text-white active:hover:bg-transparent active:hover:text-slate-700 active:hover:shadow-none"
                         href="https://www.creative-tim.com/learning-lab/tailwind/html/quick-start/soft-ui-dashboard/"
                         target="_blank"">View documentation</a>
-          <div class=" w-full text-center">
+                <div class=" w-full text-center">
                         <a class="github-button"
                             href="https://github.com/creativetimofficial/soft-ui-dashboard-tailwind"
                             data-icon="octicon-star" data-size="large" data-show-count="true"
@@ -312,6 +314,6 @@
 <!-- github button -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- main script file  -->
-<script src="../assets/js/soft-ui-dashboard-tailwind.js?v=1.0.3" async></script>
+<script src="../assets/js/soft-ui-dashboard-tailwind.js?v=1.0.3"></script>
 
 </html>

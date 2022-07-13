@@ -128,6 +128,7 @@ router.get('/edit/(:id)', function (req, res, next) {
 
     dbConn.query('SELECT * FROM eventos WHERE id = ' + id, function (err, rows, fields) {
 
+        console.log(rows[0]);
         // if user not found
         if (rows.length <= 0) {
             req.flash('error', 'Book not found with id = ' + id)
@@ -152,7 +153,7 @@ router.get('/edit/(:id)', function (req, res, next) {
 })
 
 // update evento
-router.post('/update/:id', function (req, res, next) {
+router.post('/update/(:id)', function (req, res, next) {
 
     console.log(req.body);
     let id = req.params.id;
