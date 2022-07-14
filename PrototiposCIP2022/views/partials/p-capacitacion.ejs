@@ -6,60 +6,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="../assets/css/styles.css?v=1.0.3" rel="stylesheet" />
+
 </head>
 
 <body>
     <div class="flex-auto pb-2">
         <div class="flex flex-col overflow-x-auto">
             <div class=" w-full" style="height: 400px; ">
-                    <% if(data.length) { %>
-                        <table class="w-full align-top border-gray-200 text-slate-600 text-center">
-                            <tbody class="bg-white divide-y divide-gray-300" style="padding: 4px;">
-                                <% for(var i=0; i< data.length; i++) { %>
-                                    <tr>
-                                        <tr>
-                                            <td style="padding: 4px;" rowspan="3" align="center">
-                                                <img src="../eventos/Evento.png" class="rounded-2xl" width="500">
-                                            </td>
-                                            <td style="padding: 4px;" colspan="3" align="center">
-                                                <span>Evento:</span> <br>
-                                                <span><%= data[i].nombre%></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 4px;" align="center">
-                                                <span>Modalidad:</span> <br>
-                                                <span><%= data[i].modalidad%></span>
-                                            </td>
-                                            <td style="padding: 4px;" align="center">
-                                                <span>Duración:</span> <br>
-                                                <span><%= data[i].fecha%></span>
-                                            </td>
-                                            <td style="padding: 4px;" align="center">
-                                                <span>Costo:</span> <br>
-                                                <span><%= data[i].costo%></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 4px;" colspan="3" align="center">
-                                                <button style="padding: 10px;" > Link de Inscripcion </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 20px;" colspan="4" align="center">
-                                                <div class="bg-gray-600 rounded-xl h-0.5 text-white" >-</div>
-                                            </td>
-                                        </tr>
-                                    </tr>
-                                    <% } %>
-                            </tbody>
-                        </table>
-                        <% } %>
-
-                            <!-- if result is empty -->
-                            <% if(!data.length) { %>
-                                <p class="text-center">No book found!</p>
+                <% if(data.length) { %>
+                    <table class="w-full text-black text-center">
+                        <tbody class="bg-white divide-y divide-gray-300" style="padding: 4px;">
+                            <% for(var i=0; i< data.length; i++) { %>
+                                <tr class="whitespace-nowrap justify-between">
+                                <tr>
+                                    <td style="padding-right: 0px;" rowspan="3" align="center">
+                                        <img src="../eventos/Evento.png" class="rounded-2xl" width="500">
+                                    </td>
+                                    <td style="padding: 4px; padding-left: 0px;" colspan="3" align="center">
+                                        <span
+                                            style="font-size: x-large ;color: red; margin-bottom: 0px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                                            Evento:</span> <br>
+                                        <span>
+                                            <%= data[i].nombre%>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 4px;" align="center">
+                                        <span style="color: red;">Modalidad:</span> <br>
+                                        <span>
+                                            <%= data[i].modalidad%>
+                                        </span>
+                                    </td>
+                                    <td style="padding: 4px;" align="center">
+                                        <span style="color: red;">Duración:</span> <br>
+                                        <span>
+                                            <%= data[i].fecha%>
+                                        </span>
+                                    </td>
+                                    <td style="padding: 4px;" align="center">
+                                        <span style="color: red;">Costo:</span> <br>
+                                        <span>
+                                            <%= data[i].costo%>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 4px;" colspan="3" align="center">
+                                        <button class="px-6 py-3 flex text-sm text-white rounded-xl"
+                                            style="background-color: rgb(225, 9, 9); margin: 2px;">
+                                            <img src="../img/editar.png" width="35" class="mr-4">
+                                            <span style="margin-top: 3px; font-size: large;">Link de Inscripcion</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px;" colspan="4" align="center">
+                                        <div class="bg-gray-600 rounded-xl h-0.5 text-white">-</div>
+                                    </td>
+                                </tr>
+                                </tr>
                                 <% } %>
+                        </tbody>
+                    </table>
+                    <% } %>
+
+                        <!-- if result is empty -->
+                        <% if(!data.length) { %>
+                            <p class="text-center">No book found!</p>
+                            <% } %>
             </div>
         </div>
     </div>
