@@ -32,7 +32,7 @@ router.post('/main', function (req, res, next) {
         req.session.email = rows[0]["email"];
         req.session.rol = rows[0]["rol"];
         req.session.loggedin = true;
-        res.redirect('/pages/dashboard');
+        res.render('pages/dashboard');
       } else {
         req.flash('error', 'El usuario no existe...');
         res.redirect('/login');
@@ -110,5 +110,12 @@ router.get('/pages/perfil', function (req, res, next) {
   res.locals.rol = req.session.rol;
   res.render('pages/perfil');
 });
+
+router.get('/sub-page/inscripcion-capacitacion', function (req, res, next) {
+  res.locals.email = req.session.email;
+  res.locals.rol = req.session.rol;
+  res.render('sub-page/inscripcion-capacitacion');
+});
+
 
 module.exports = router;
