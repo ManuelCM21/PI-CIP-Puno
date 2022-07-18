@@ -25,7 +25,7 @@
         <main class="ease-soft-in-out xl:ml-68.5 relative max-h-screen rounded-xl transition-all duration-200">
             <!-- Navbar -->
             <nav class="flex flex-wrap items-center justify-between px-0 py-2 mx-6 mt-4 transition-all duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start sticky top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px] bg-[hsla(0,0%,100%,0.8)] shadow-blur z-110"
-                navbar-main >
+                navbar-main>
                 <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
                     <nav>
                         <!-- breadcrumb -->
@@ -52,10 +52,11 @@
                                     placeholder="Type here..." />
                             </div>
                         </div>
+                        
                         <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
 
                             <li class="flex items-center">
-                                <a href="../pages/sign-in.html"
+                                <a href=""
                                     class="block px-0 py-2 font-semibold transition-all ease-nav-brand text-size-sm text-slate-500">
                                     <i class="fa fa-user sm:mr-1"></i>
                                     <span class="hidden sm:inline">
@@ -193,15 +194,14 @@
                     <div class="flex-none w-full max-w-full px-3">
                         <div
                             class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-2xl rounded-2xl bg-clip-border">
-                            <div
-                                class="w-full bg-white border-b-0 border-b-solid rounded-2xl border-b-transparent">
+                            <div class="w-full bg-white border-b-0 border-b-solid rounded-2xl border-b-transparent">
                                 <div class="px-3 py-2 flex justify-center lg:w-full md:w-full sm:w-full w-full">
                                     <p class="text-black m-0">Lista de Eventos Disponibles</p>
                                 </div>
                                 <%- include('../partials/p-evento'); %>
                                     <div
                                         class="px-6 py-2 flex justify-end leading-loose lg:w-full md:w-full sm:w-full w-full">
-                                        <a href="/sub-page/crear-evento"
+                                        <a href="/crear-evento"
                                             class="flex mb-2 text-white tracking-wider rounded-xl shadow-soft-2xl"
                                             style="background-color: black; padding: 10px;">
                                             <img src="../img/crear.png" width="30" class="mr-1">
@@ -213,6 +213,7 @@
                 </div>
             </div>
         </main>
+
         <div fixed-plugin>
             <a fixed-plugin-button
                 class="bottom-7.5 right-7.5 text-size-xl z-990 shadow-soft-lg rounded-circle fixed cursor-pointer bg-white px-4 py-2 text-slate-700">

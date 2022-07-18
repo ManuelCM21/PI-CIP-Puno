@@ -27,34 +27,34 @@
                                         <span
                                             style="font-size: x-large ;color: red; margin-bottom: 0px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
                                             Evento:</span> <br>
-                                        <span>
+                                        <span style="font-size: x-large; margin-bottom: 0px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
                                             <%= data[i].nombre%>
                                         </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 4px;" align="center">
-                                        <span style="color: red;">Modalidad:</span> <br>
-                                        <span>
+                                        <span style="color: red; font-size: x-large;">Modalidad:</span> <br>
+                                        <span style="font-size: x-large;">
                                             <%= data[i].modalidad%>
                                         </span>
                                     </td>
                                     <td style="padding: 4px;" align="center">
-                                        <span style="color: red;">Duración:</span> <br>
-                                        <span>
-                                            <%= data[i].fecha%>
+                                        <span style="color: red; font-size: x-large;">Duración:</span> <br>
+                                        <span style="font-size: x-large;">
+                                            <%= data[i].duracion%>
                                         </span>
                                     </td>
                                     <td style="padding: 4px;" align="center">
-                                        <span style="color: red;">Costo:</span> <br>
-                                        <span>
-                                            <%= data[i].costo%>
+                                        <span style="color: red; font-size: x-large;">Costo:</span> <br>
+                                        <span style="font-size: x-large;">
+                                            S/.<%= data[i].costo%>
                                         </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 4px;" colspan="3" align="center">
-                                        <a href="/sub-page/inscripcion-capacitacion"
+                                        <a href="/inscripcion/ <%=data[i].id%> "
                                             class="px-6 py-3 flex text-sm text-white rounded-xl shadow-soft-2xl"
                                             style="background-color: rgb(225, 9, 9); margin: 2px; width: 55%;">
                                             <img src="../img/editar.png" width="35" class="mr-4">

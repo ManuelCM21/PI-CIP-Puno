@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/css/styles.css?v=1.0.3" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</head>
+
+<body>
+    <div class="flex-auto">
+        <div class="flex flex-col overflow-x-auto">
+            <div class=" w-full" style="height: 400px;">
+                <% if(data.length) { %>
+                    <table class="w-full align-top text-slate-600">
+                        <thead style="position: sticky; top:0;">
+                            <tr class="bg-black ">
+                                <th class="px-3 py-2 text-white scope=col rounded-xl">#</th>
+                                <th class="px-3 py-2 text-white scope=col rounded-xl">Participante</th>
+                                <th class="px-3 py-2 text-white scope=col rounded-xl">Fecha I.</th>
+                                <th class="px-3 py-2 text-white scope=col rounded-xl">Documento</th>
+                                <th class="px-3 py-2 text-white width=col rounded-xl">Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-300">
+                            <% for(var i=0; i< data.length; i++) { %>
+                                <tr class="whitespace-nowrap">
+                                    <th class="px-3 py-4 border border-b border-t-0" scope="row">
+                                        <%= data[i].idins%>
+                                    </th>
+                                    <td class="px-2 py-4 border border-b border-t-0 border-l-0 border-r-0">
+                                        <%= data[i].nombre%>
+                                    </td>
+                                    <td class="px-2 py-4 border border-b border-t-0 border-l-0 border-r-0 text-center">
+                                        <%= data[i].fecha%>
+                                    </td>
+                                    <td class="px-2 py-4 border border-b border-t-0 border-l-0 border-r-0">
+                                        <button class="mx-auto flex text-sm text-black rounded-xl">
+                                            <img src="../img/documento.png" width="60" class="">
+                                        </button>
+                                    </td>
+                                    <td
+                                        class="px-2 py-1 flex justify-center border border-b border-t-0 border-l-0 border-r-0">
+                                        <% if(data[i].estado=="Pendiente" || data[i].estado=="" ) { %>
+                                            <button class="px-3 py-3 flex text-sm text-white rounded-xl"
+                                                style="background-color: rgb(16, 137, 38); margin: 2px;"
+                                                onclick="return fireSweetAlert('<%=data[i].idins%>')">
+                                                <img src="../img/editar.png" width="25" class="mr-1">
+                                                Validar</button>
+                                            <button class="px-3 py-3 flex text-sm text-white rounded-xl"
+                                                style="background-color: rgb(188, 13, 13); margin: 2px;"
+                                                onclick="return showDialogWithPassingParams('<%=data[i].idins%>')">
+                                                <img src="../img/eliminar.png" width="20" class="mr-1">
+                                                Rechazar</button>
+                                            <% } else { %>
+                                                <span class="py-4">
+                                                    <%= data[i].estado%>
+                                                </span>
+                                                <% } %>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                    <% } %>
+
+                        <!-- if result is empty -->
+                        <% if(!data.length) { %>
+                            <p class="text-center">No book found!</p>
+                            <% } %>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function fireSweetAlert(id) {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                        '',
+                        'Se modificó correctamente',
+                        icon = 'success',
+                    ).then((result) => {
+                        location.href = "/aprocap/" + id;
+                    })
+                }
+            })
+        }
+
+        function showDialogWithPassingParams(id) {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                        '',
+                        'Se modificó correctamente',
+                        icon = 'success',
+                    ).then((result) => {
+                        location.href = "/rechacap/" + id;
+                    })
+                }
+            })
+        }
+
+    </script>
+    
+</body>
+
+</html>

@@ -18,7 +18,7 @@ router.get('/pages/eventos', function (req, res, next) {
     });
 });
 
-router.get('/sub-page/crear-evento', function (req, res, next) {
+router.get('/crear-evento', function (req, res, next) {
     res.locals.email = req.session.email;
     res.locals.rol = req.session.rol;
     res.render('sub-page/crear-evento');

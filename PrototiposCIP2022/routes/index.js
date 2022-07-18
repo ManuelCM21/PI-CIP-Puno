@@ -10,7 +10,9 @@ router.get('/', function (req, res, next) {
 router.get('/inscripcion', function (req, res, next) {
   res.render('inscripcion');
 });
-
+router.get('/buscar', function (req, res, next) {
+  res.render('buscar');
+});
 router.get('/login', function (req, res, next) {
   res.render('login');
 });
@@ -32,7 +34,7 @@ router.post('/main', function (req, res, next) {
         req.session.email = rows[0]["email"];
         req.session.rol = rows[0]["rol"];
         req.session.loggedin = true;
-        res.render('pages/dashboard');
+        res.redirect('/pages/dashboard');
       } else {
         req.flash('error', 'El usuario no existe...');
         res.redirect('/login');
@@ -71,21 +73,6 @@ router.get('/pages/solicitudes', function (req, res, next) {
   });
 });
 
-router.get('/pages/capacitaciones', function (req, res, next) {
-
-  dbConn.query('SELECT * FROM eventos', function (err, rows) {
-
-    if (err) {
-      req.flash('error', err);
-      res.render('pages/capacitaciones', { data: '' });
-    } else {
-      res.locals.email = req.session.email;
-      res.locals.rol = req.session.rol;
-      res.render('pages/capacitaciones', { data: rows });
-    }
-  });
-});
-
 router.get('/pages/pagos', function (req, res, next) {
   res.locals.email = req.session.email;
   res.locals.rol = req.session.rol;
@@ -93,9 +80,19 @@ router.get('/pages/pagos', function (req, res, next) {
 });
 
 router.get('/pages/notificacion', function (req, res, next) {
-  res.locals.email = req.session.email;
-  res.locals.rol = req.session.rol;
-  res.render('pages/notificacion');
+
+  dbConn.query('SELECT * FROM notificacion', function (err, rows) {
+
+    if (err) {
+      req.flash('error', err);
+      res.render('pages/notificacion', { data: '' });
+    } else {
+      res.locals.email = req.session.email;
+      res.locals.rol = req.session.rol;
+      res.render('pages/notificacion', { data: rows });
+    }
+  });
+
 });
 
 router.get('/pages/calendario', function (req, res, next) {
@@ -109,12 +106,6 @@ router.get('/pages/perfil', function (req, res, next) {
   res.locals.email = req.session.email;
   res.locals.rol = req.session.rol;
   res.render('pages/perfil');
-});
-
-router.get('/sub-page/inscripcion-capacitacion', function (req, res, next) {
-  res.locals.email = req.session.email;
-  res.locals.rol = req.session.rol;
-  res.render('sub-page/inscripcion-capacitacion');
 });
 
 

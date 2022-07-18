@@ -13,19 +13,34 @@
     <div class="flex-auto pb-2">
         <div class="flex flex-col p-0 overflow-x-auto">
             <div class=" w-full" style="height: 340px; ">
-                <div class="border-b border-gray-200 shadow" >
-            
+                <div class="border-b border-gray-200 shadow">
+
                     <% if(data.length) { %>
-                        <table class="w-full align-top border-gray-200 text-slate-600" >
-                            <thead class="bg-gray-50 align-bottom">
-                                <tr class="bg-black">
-                                    <th class="px-3 py-2 text-white scope=" col">#</th>
-                                    <th class="px-3 py-2 text-white scope=" col">Nombre</th>
-                                    <th class="px-3 py-2 text-white scope=" col">Apellidos</th>
-                                    <th class="px-3 py-2 text-white scope=" col">Dni</th>
-                                    <th class="px-3 py-2 text-white scope=" col">Celular</th>
-                                    <th class="px-3 py-2 text-white scope=" col">Email</th>
-                                    <th class="px-3 py-2 text-white width=" col">Accion</th>
+                        <table class="w-full align-top border-gray-200 text-slate-600">
+
+                            <thead class="align-bottom bg-black" style="position: sticky; top:0;">
+                                <tr>
+                                    <th
+                                        class="px-3 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                        #</th>
+                                    <th
+                                        class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                        Nombre</th>
+                                    <th
+                                        class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                        Apellidos</th>
+                                    <th
+                                        class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                        Dni</th>
+                                    <th
+                                        class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                        Celular</th>
+                                    <th
+                                        class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                        Email</th>
+                                    <th
+                                        class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                        Docs</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-300">
@@ -50,22 +65,29 @@
                                             <%= data[i].email%>
                                         </td>
                                         <td class="px-3 py-4">
-                                            <a class="px-2 py-2 text-sm text-white rounded-xl" style="background-color: rgb(16, 137, 38);" href="/web/edit/ <%=data[i].id%> ">Edit</a>
-                                            <a class="px-2 py-2 text-sm text-white rounded-xl" style="background-color: rgb(188, 13, 13);" onclick="return confirm('Estas seguro de eliminar?')"
-                                                href="/web/delete/ <%=data[i].id%> ">Delete</a>
+                                            <a class="px-2 py-2 text-sm text-white rounded-xl"
+                                                style="background-color: rgb(16, 137, 38);"
+                                                href="/editar/<%=data[i].id%> ">Ver soli</a>
+                                            <a class="px-2 py-2 text-sm text-white rounded-xl"
+                                                style="background-color: rgb(188, 13, 13); margin: 2px;"
+                                                href="/deletesoli/ <%=data[i].id%> ">
+                                                Eliminar</a>
                                         </td>
+
+
                                     </tr>
                                     <% } %>
                             </tbody>
                         </table>
                         <% } %>
-            
+
                             <!-- if result is empty -->
                             <% if(!data.length) { %>
                                 <p class="text-center">No book found!</p>
                                 <% } %>
-            
+
                 </div>
+
             </div>
         </div>
     </div>

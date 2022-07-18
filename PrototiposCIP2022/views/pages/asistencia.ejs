@@ -20,7 +20,7 @@
 
 <body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-200 text-black">
 
-    <%- include('../nav/navbar-notificacion'); %>
+    <%- include('../nav/navbar-asistencia'); %>
 
         <main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
             <!-- Navbar -->
@@ -34,9 +34,9 @@
                                 <a class="opacity-50 text-slate-700" href="javascript:;">Pages</a>
                             </li>
                             <li class="text-size-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
-                                aria-current="page">Notificaciones</li>
+                                aria-current="page">Asistencias</li>
                         </ol>
-                        <h6 class="mb-0 font-bold capitalize">Notificaciones</h6>
+                        <h6 class="mb-0 font-bold capitalize">Asistencias</h6>
                     </nav>
 
                     <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
@@ -189,15 +189,15 @@
 
                 <div class="flex flex-wrap -mx-3">
                     <div class="flex-none w-full max-w-full px-3">
-                        <div style="height: 420px;"
+                        <div
                             class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                             <div
-                                class="p-6 pb-0 mb-1 text-center bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                                <h6>Lista de Notificaciones</h6>
+                                class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                                <h6>Lista de Asistencias</h6>
                             </div>
                             <div class="flex-auto px-0 pt-0 pb-2">
                                 <div class="p-0 overflow-x-auto">
-                                    <%- include('../partials/p-notificacion'); %>
+                                    <%- include('../partials/p-asistencia'); %>
                                 </div>
                             </div>
                         </div>

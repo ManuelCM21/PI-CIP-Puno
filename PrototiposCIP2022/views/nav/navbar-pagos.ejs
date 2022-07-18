@@ -48,16 +48,31 @@
             </li>
             <% } %>
 
-            <li class="mt-0.5 w-full">
-                <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
-                    href="/pages/capacitaciones">
-                    <div
-                        class="bg-gradient-dark-gray shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                        <img width="25px" height="25px" src="../navbar/capacitacion.svg" alt="">
-                    </div>
-                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Capacitaciones</span>
-                </a>
-            </li>
+            <% if(locals.rol=="Secretaria") { %>
+                <li class="mt-0.5 w-full">
+                    <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
+                        href="/pages/inscripcion">
+                        <div
+                            class="bg-gradient-dark-gray shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                            <img width="25px" height="25px" src="../navbar/evento.svg" alt="">
+                        </div>
+                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Inscripciones</span>
+                    </a>
+                </li>
+            <% } %>
+
+            <% if(locals.rol=="Colegiado") { %>
+                <li class="mt-0.5 w-full">
+                    <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
+                        href="/pages/capacitaciones">
+                        <div
+                            class="bg-gradient-dark-gray shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                            <img width="25px" height="25px" src="../navbar/capacitacion.svg" alt="">
+                        </div>
+                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Capacitaciones</span>
+                    </a>
+                </li>
+            <% } %>
 
             <li class="mt-0.5 w-full">
                 <a class="py-2.7 shadow-soft-xxs text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-red-600 transition-colors"
@@ -70,6 +85,7 @@
                 </a>
             </li>
 
+            <% if(locals.rol=="Colegiado") { %>
             <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
                     href="/pages/notificacion">
@@ -80,6 +96,18 @@
                     <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Notificaciones</span>
                 </a>
             </li>
+
+            <li class="mt-0.5 w-full">
+                <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
+                    href="/pages/asistencia">
+                    <div
+                        class="bg-gradient-dark-gray shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                        <img width="25px" height="25px" src="../navbar/home.svg" alt="">
+                    </div>
+                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Asistencias</span>
+                </a>
+            </li>
+            <% } %>
 
             <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"

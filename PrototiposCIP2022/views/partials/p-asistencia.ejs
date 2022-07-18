@@ -1,0 +1,40 @@
+<% if(data.length) { %>
+    <table class="items-center w-full mb-0 align-top border-gray-200 text-black">
+        <thead class="align-bottom bg-black" style="position: sticky; top:0;">
+            <tr>
+                <th
+                    class="px-3 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                    #</th>
+                <th
+                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                    Evento</th>
+                <th
+                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                    Fecha</th>
+                <th
+                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                    Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i< data.length; i++) { %>
+            <tr>
+                <th class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
+                    <%= data[i].idnot%>
+                </th>
+                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
+                    <%= data[i].autor%>
+                </td>
+                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
+                    <%= data[i].descripcion%>
+                </td>
+                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
+                    <button class="mx-auto flex text-sm rounded-xl">
+                        <img src="../img/ver.png" width="70" class="">
+                    </button>
+                </td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <% } %>

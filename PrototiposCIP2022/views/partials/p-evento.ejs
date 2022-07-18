@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos</title>
     <link href="../assets/css/styles.css?v=1.0.3" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 
 <body>
@@ -15,13 +16,26 @@
             <div class=" w-full" style="height: 340px;">
                 <% if(data.length) { %>
                     <table class="w-full align-top border-gray-200 text-slate-600">
-                            <tr class="bg-black">
-                                <th class="px-3 py-2 text-white scope=" col">#</th>
-                                <th class="px-3 py-2 text-white scope=" col">Nombre del evento</th>
-                                <th class="px-3 py-2 text-white scope=" col">Fecha</th>
-                                <th class="px-3 py-2 text-white scope=" col">Modalidad</th>
-                                <th class="px-3 py-2 text-white width=" col">Accion</th>
+
+                        <thead class="align-bottom bg-black" style="position: sticky; top:0;">
+                            <tr>
+                                <th
+                                    class="px-3 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                    #</th>
+                                <th
+                                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                    Nombre del evento</th>
+                                <th
+                                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                    Fecha</th>
+                                <th
+                                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                    Modalidad</th>
+                                <th
+                                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                    Accion</th>
                             </tr>
+                        </thead>
                         <tbody class="bg-white divide-y divide-gray-300">
                             <% for(var i=0; i< data.length; i++) { %>
                                 <tr class="whitespace-nowrap">
@@ -43,12 +57,11 @@
                                             href="/edit/ <%=data[i].id%> ">
                                             <img src="../img/editar.png" width="25" class="mr-1">
                                             Editar</a>
-                                        <a class="px-3 py-3 flex text-sm text-white rounded-xl"
+                                        <button class="px-3 py-3 flex text-sm text-white rounded-xl"
                                             style="background-color: rgb(188, 13, 13); margin: 2px;"
-                                            onclick="return confirm('Estas seguro de eliminar?')"
-                                            href="/delete/ <%=data[i].id%> ">
+                                            onclick="return showDialogWithPassingParams('<%=data[i].id%>')">
                                             <img src="../img/eliminar.png" width="20" class="mr-1">
-                                            Eliminar</a>
+                                            Eliminar</button>
                                     </td>
                                 </tr>
                                 <% } %>
@@ -63,6 +76,33 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        function showDialogWithPassingParams(id) {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                        '',
+                        'Se modificó correctamente',
+                        icon = 'success',
+                    ).then((result) => {
+                        location.href = "/delete/" + id;
+                    })
+                }
+            })
+        }
+
+    </script>
 
 </body>
 

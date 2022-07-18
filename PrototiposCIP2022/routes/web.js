@@ -8,6 +8,7 @@ router.post('/add', function (req, res, next) {
     let nombre = req.body.nombre;
     let descripcion = req.body.descripcion;
     let ponente = req.body.ponente;
+    let duracion = req.body.duracion;
     let modalidad = req.body.modalidad;
     let costo = req.body.costo;
     let fecha = req.body.fecha;
@@ -22,6 +23,7 @@ router.post('/add', function (req, res, next) {
             nombre: nombre,
             descripcion: descripcion,
             ponente: ponente,
+            duracion: duracion,
             modalidad: modalidad,
             costo: costo,
             fecha: fecha,
@@ -40,6 +42,7 @@ router.post('/add', function (req, res, next) {
                     nombre: nombre,
                     descripcion: descripcion,
                     ponente: ponente,
+                    duracion: duracion,
                     modalidad: modalidad,
                     costo: costo,
                     fecha: fecha,
@@ -57,24 +60,68 @@ router.post('/add', function (req, res, next) {
 router.post('/agregar', function (req, res, next) {
     console.log(req.body);
     let nombre = req.body.nombre;
-    let apellidos = req.body.apellidos;
+    let apellidop = req.body.apellidop;
+    let apellidom = req.body.apellidom;
     let dni = req.body.dni;
     let celular = req.body.celular;
     let email = req.body.email;
-
+    let especialidad = req.body.especialidad;
+    let docd = req.body.docd;
+    let doct = req.body.doct;
+    let docc = req.body.docc;
+    let docf = req.body.docf;
+    let docft = req.body.docft;
     let errors = false;
+    var form_data = {
+        nombre: nombre,
+        apellidop: apellidop,
+        apellidom: apellidom,
+        dni: dni,
+        celular: celular,
+        email: email,
+        especialidad: especialidad
+    }
+    dbConn.query('INSERT INTO personas SET ?', form_data, function (err, result) {
+        //if(err) throw err
+        if (err) {
+            req.flash('error', err)
+
+            // render to add.ejs
+            res.render('web/agregar', {
+                nombre: nombre,
+                apellidop: apellidop,
+                apellidom: apellidom,
+                dni: dni,
+                celular: celular,
+                email: email,
+                especialidad: especialidad,
+
+            })
+        } else {
+            req.flash('success', 'Person successfully added');
+            res.redirect('/');
+        }
+    }
+    )
+
 
     // if no error
     if (!errors) {
 
         var form_data = {
             nombre: nombre,
-            apellidos: apellidos,
+            apellidop: apellidop,
+            apellidom: apellidom,
             dni: dni,
             celular: celular,
-            email: email
+            email: email,
+            especialidad: especialidad,
+            docd: docd,
+            doct: doct,
+            docc: docc,
+            docf: docf,
+            docft: docft
         }
-
         // insert query
         dbConn.query('INSERT INTO postulantes SET ?', form_data, function (err, result) {
             //if(err) throw err
@@ -84,20 +131,25 @@ router.post('/agregar', function (req, res, next) {
                 // render to add.ejs
                 res.render('web/agregar', {
                     nombre: nombre,
-                    apellidos: apellidos,
+                    apellidop: apellidop,
+                    apellidom: apellidom,
                     dni: dni,
                     celular: celular,
-                    email: email
+                    email: email,
+                    especialidad: especialidad,
+                    docd: docd,
+                    doct: doct,
+                    docc: docc,
+                    docf: docf,
+                    docft: docft
 
                 })
-            } else {
-                req.flash('success', 'Person successfully added');
-                res.redirect('/');
             }
         })
-    }
-})
 
+    }
+
+})
 
 // delete evento
 router.get('/delete/(:id)', function (req, res, next) {
@@ -146,6 +198,7 @@ router.get('/edit/(:id)', function (req, res, next) {
                 nombre: rows[0].nombre,
                 descripcion: rows[0].descripcion,
                 ponente: rows[0].ponente,
+                duracion: rows[0].duracion,
                 modalidad: rows[0].modalidad,
                 costo: rows[0].costo,
                 fecha: rows[0].fecha,
@@ -168,6 +221,7 @@ router.post('/update/(:id)', function (req, res, next) {
     let nombre = req.body.nombre;
     let descripcion = req.body.descripcion;
     let ponente = req.body.ponente;
+    let duracion = req.body.duracion;
     let modalidad = req.body.modalidad;
     let costo = req.body.costo;
     let fecha = req.body.fecha;
@@ -182,6 +236,7 @@ router.post('/update/(:id)', function (req, res, next) {
             nombre: nombre,
             descripcion: descripcion,
             ponente: ponente,
+            duracion: duracion,
             modalidad: modalidad,
             costo: costo,
             fecha: fecha,
@@ -200,6 +255,7 @@ router.post('/update/(:id)', function (req, res, next) {
                     nombre: nombre,
                     descripcion: descripcion,
                     ponente: ponente,
+                    duracion: duracion,
                     modalidad: modalidad,
                     costo: costo,
                     fecha: fecha,
