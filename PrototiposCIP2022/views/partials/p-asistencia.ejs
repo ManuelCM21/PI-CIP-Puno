@@ -1,40 +1,73 @@
-<% if(data.length) { %>
-    <table class="items-center w-full mb-0 align-top border-gray-200 text-black">
-        <thead class="align-bottom bg-black" style="position: sticky; top:0;">
-            <tr>
-                <th
-                    class="px-3 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
-                    #</th>
-                <th
-                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
-                    Evento</th>
-                <th
-                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
-                    Fecha</th>
-                <th
-                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
-                    Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for(var i=0; i< data.length; i++) { %>
-            <tr>
-                <th class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                    <%= data[i].idnot%>
-                </th>
-                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                    <%= data[i].autor%>
-                </td>
-                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                    <%= data[i].descripcion%>
-                </td>
-                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                    <button class="mx-auto flex text-sm rounded-xl">
-                        <img src="../img/ver.png" width="70" class="">
-                    </button>
-                </td>
-            </tr>
-            <% } %>
-        </tbody>
-    </table>
-    <% } %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="../assets/css/styles.css?v=1.0.3" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="flex-auto pb-2">
+        <div class="flex flex-col overflow-x-auto">
+            <div class=" w-full" style="height: 360px; ">
+                <% if(data.length) { %>
+                    <table class="items-center w-full mb-0 align-top border-gray-200 text-black">
+                        <thead class="align-bottom bg-black" style="position: sticky; top:0;">
+                            <tr>
+                                <th
+                                    class="px-3 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                    #</th>
+                                <th
+                                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                    Evento</th>
+                                <th
+                                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                    Fecha</th>
+                                <th
+                                    class="px-6 py-3 font-bold rounded-xl text-center uppercase align-middle bg-transparent border-b border-gray-200 text-size-xs border-b-solid tracking-none whitespace-nowrap text-white">
+                                    Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i=0; i< data.length; i++) { %>
+                                <tr>
+                                    <th class="px-2 py-1 align-middle bg-transparent border-b whitespace-nowrap">
+                                        <%= data[i].idasis%>
+                                    </th>
+                                    <td class="px-2 py-1 align-middle bg-transparent border-b whitespace-nowrap">
+                                        <%= data[i].nombre%>
+                                    </td>
+                                    <td class="px-2 py-1 text-center bg-transparent border-b whitespace-nowrap">
+                                        <%= data[i].fecha%>
+                                    </td>
+                                    <td class="px-2 border-b flex justify-center" align="center">
+                                        <% if(data[i].estado=="Pendiente" ) { %>
+                                            <a class="px-4 py-2 flex text-sm text-white rounded-xl shadow-soft-2xl"
+                                                style="background-color: rgb(6, 125, 22); margin: 2px;"
+                                                href="/confirasis/ <%=data[i].idasis%>">
+                                                <img src="../img/editar.png" width="30" class="mr-2">
+                                                <span class="mt-1">Confirmar Asistencia</span>
+                                            </a>
+                                            <% } else { %>
+                                                <span class="py-4 text-black">
+                                                    <%= data[i].estado%>
+                                                </span>
+                                                <% } %>
+
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                    <% } %>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

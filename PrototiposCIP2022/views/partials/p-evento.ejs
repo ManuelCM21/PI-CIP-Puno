@@ -54,12 +54,12 @@
                                     <td class="px-2 py-1 flex justify-center">
                                         <a class="px-3 py-3 flex text-sm text-white rounded-xl"
                                             style="background-color: rgb(16, 137, 38); margin: 2px;"
-                                            href="/edit/ <%=data[i].id%> ">
+                                            href="/edit/ <%=data[i].ideve%> ">
                                             <img src="../img/editar.png" width="25" class="mr-1">
                                             Editar</a>
                                         <button class="px-3 py-3 flex text-sm text-white rounded-xl"
                                             style="background-color: rgb(188, 13, 13); margin: 2px;"
-                                            onclick="return showDialogWithPassingParams('<%=data[i].id%>')">
+                                            onclick="return showDialogWithPassingParams('<%=data[i].ideve%>')">
                                             <img src="../img/eliminar.png" width="20" class="mr-1">
                                             Eliminar</button>
                                     </td>
@@ -79,7 +79,7 @@
 
     <script>
 
-        function showDialogWithPassingParams(id) {
+        function showDialogWithPassingParams(ideve) {
             Swal.fire({
                 title: '¿Estás seguro?',
                 text: "¡No podrás revertir esto!",
@@ -96,7 +96,7 @@
                         'Se modificó correctamente',
                         icon = 'success',
                     ).then((result) => {
-                        location.href = "/delete/" + id;
+                        location.href = "/delete/" + ideve;
                     })
                 }
             })

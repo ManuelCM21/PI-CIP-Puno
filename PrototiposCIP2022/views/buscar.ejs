@@ -1,41 +1,100 @@
 <%- include('partials/header-buscar'); %>
-<div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
-  <div class=" ml-auto md:pr-4">
-    
-      
-      <input type="text"
-        class="pl-8.75 text-size-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-        placeholder="Type here..." />
-    
-  </div>
-  
+<div class="relative md:ml-64 bg-blueGray-50">
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="../path/to/soft-ui-dashboard-tailwind.js"></script>
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <!-- Header -->
+
+  <section class="pt-10 py-24 lg:pt-0 bg-gray-200 flex flex-wrap">
+      <form action="/agregar" method="POST" class="flex flex-wrap">
+          <div class="w-full lg:w-6/12 xl:w-2/12 px-4">
+              <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                  <div class="flex-auto p-5 lg:p-10">
+                      <h4 class="text-2xl font-semibold">Buscar Colegiado</h4>
+                      <p class="leading-relaxed mt-1 mb-4 text-gray-600">
+                          Ingrese los Datos a Continuacion:
+                      </p>
+                  
+
+                      <div class="relative w-full mb-3 mt-8">
+                          <label class="mb-2 ml-1 font-bold text-size-xs text-slate-700 dark:text-white/80"
+                              for="First Name">Nro de Documento</label>
+                          <input type="text" name="nombre" placeholder="Nro"
+                              class="mb-4 focus:shadow-soft-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-size-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none" />
+                      </div>
+                     
+                      <div class="relative w-full mb-3">
+                          <label class="mb-2 ml-1 font-bold text-size-xs text-slate-700 dark:text-white/80"
+                              for="Especialidad">Tipo de documento</label>
+                          <select choice
+                              class="focus:shadow-soft-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-size-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none"
+                              name="especialidad" id="especialidad">
+
+                              <option value="ING.Civil">Nro Cip</option>
+                              <option value="ING.Mecánica">Nro dni</option>
+                              <option value="ING.Industrial">Nro Carnet de extranjeria</option>
+
+                          </select>
+                      </div>
+
+
+                  </div>
+              </div>
+          </div>
+          
+          <div class="w-full lg:w-6/12 xl:w-2/12 px-4">
+              <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg my-5">
+                <table class="table-auto">
+                  <thead>
+                    <tr>
+                      <th>Nomre Completo</th>
+                      <th>Carrera</th>
+                      <th>año</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>----------------------------</td>
+                      <td>--------</td>
+                      <td>---</td>
+                    </tr>
+                   
+                  </tbody>
+                </table>
+
+                  </div>
+
+              </div>
+              <div
+                  class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg mt-5">
+                  <div class="flex-auto p-10 lg:p-10">
+
+
+                      <div class="relative w-full mb-3">
+
+
+                          <input type="submit" href=""
+                              class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                              style="transition: all 0.15s ease 0s;" value="Buscar">
+
+                      </div>
+
+                  </div>
+
+              </div>
+
+          </div>
+      </form>
+
+
+  </section>
+
+
 </div>
 
-  <!-- sidenav  -->
-  
-    <!-- end sidenav -->
 
-   
-      <!-- Navbar -->
-      <!--nav
-        class=" items-center  justify-between px-0 py-2 mx-6 mt-4 transition-all duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start sticky top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px] bg-[hsla(0,0%,100%,0.8)] shadow-blur z-110"
-        navbar-main navbar-scroll="true">
-        
-
-          
-        </div>
-      </nav-->
-
-      <!-- end Navbar -->
-
-      <!-- cards -->
-  
-
-        <!-- cards row 2 -->
-       
-                       
-        
-
-
-
-    <%- include('partials/footer'); %>
+ <%- include('partials/footer'); %>

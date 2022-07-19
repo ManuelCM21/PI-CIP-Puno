@@ -23,7 +23,10 @@ router.get('/editar/(:id)', function (req, res, next) {
     let id = req.params.id;
 
     res.locals.nombre = req.session.nombre;
+    res.locals.apellidop = req.session.apellidop;
+    res.locals.apellidom = req.session.apellidom;
     res.locals.email = req.session.email;
+    res.locals.especialidad = req.session.especialidad;
     res.locals.rol = req.session.rol;
 
     dbConn.query('SELECT * FROM Postulantes WHERE id = ' + id, function (err, rows, fields) {
@@ -40,10 +43,12 @@ router.get('/editar/(:id)', function (req, res, next) {
             res.render('sub-page/edit-solicitud', {
                 id: rows[0].id,
                 nombre: rows[0].nombre,
-                apellidos: rows[0].apellidos,
+                apellidop: rows[0].apellidop,
+                apellidom: rows[0].apellidom,
                 dni: rows[0].dni,
                 celular: rows[0].celular,
                 email: rows[0].email,
+                especialidad: rows[0].especialidad,
                 
             })
         }
@@ -52,7 +57,10 @@ router.get('/editar/(:id)', function (req, res, next) {
 router.post('/addsoli', function (req, res, next) {
     console.log(req.body);
     let nombre = req.body.nombre;
+    let apellidop = req.body.apellidop;
+    let apellidom = req.body.apellidom;
     let email = req.body.email;
+    let especialidad = req.body.especialidad;
     let password = req.body.password;
     let rol = req.body.rol;
     let errors = false;
@@ -62,7 +70,10 @@ router.post('/addsoli', function (req, res, next) {
 
         var form_data = {
             nombre:nombre,
+            apellidop:apellidop,
+            apellidom:apellidom,
             email: email,
+            especialidad:especialidad,
             password: password,
             rol: rol
         }
@@ -74,10 +85,13 @@ router.post('/addsoli', function (req, res, next) {
                 req.flash('error', err)
 
                 // render to add.ejs
-                res.render('/add', {
+                res.render('/addsoli', {
                     nombre:nombre,
+                    apellidop:apellidop,
+                    apellidom:apellidom,
                     email: email,
-                    password: password, 
+                    especialidad1:especialidad,
+                    password: password,
                     rol: rol
                     
                 })

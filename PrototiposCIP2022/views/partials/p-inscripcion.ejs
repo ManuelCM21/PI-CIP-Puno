@@ -55,10 +55,17 @@
                                                 <img src="../img/eliminar.png" width="20" class="mr-1">
                                                 Rechazar</button>
                                             <% } else { %>
-                                                <span class="py-4">
-                                                    <%= data[i].estado%>
-                                                </span>
-                                                <% } %>
+                                                <% if(data[i].estado=="Aprobado" ) { %>
+                                                        <a href="/link/<%=data[i].idins%>" class=" px-3 py-2 flex text-sm text-white rounded-xl"
+                                                        style="background-color: rgb(18, 15, 173); margin: 2px;">
+                                                            <img src="../img/link.png" width="55" class="ml-1 mt-1">
+                                                        </a>
+                                                    <% } else { %>
+                                                        <span class="py-4">
+                                                            <%= data[i].estado%>
+                                                        </span>
+                                                        <% } %>
+                                                            <% } %>
                                     </td>
                                 </tr>
                                 <% } %>
@@ -123,7 +130,6 @@
         }
 
     </script>
-    
 </body>
 
 </html>

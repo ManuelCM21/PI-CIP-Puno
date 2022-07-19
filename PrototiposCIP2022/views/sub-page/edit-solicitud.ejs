@@ -242,47 +242,43 @@
                     
                     
                                                 </div>
-                                                <!--div
-                                                    class="px-3 py-3 leading-loose lg:w-1/2 md:w-full sm:w-full w-full">
-                                                    <div class="">
-                                                        <label class="inline-block text-gray-500">Documento:</label>
-                                                        <div class="flex items-center justify-center w-full">
-                                                            <div class="container">
-                                                                <div  class="flex flex-col items-center justify-center" > <img src="../eventos/Evento.png" class="rounded-2xl" width="300">
-                                                                </div>
-                                                            </div>
-                                                                
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </div-->
+                                               
                                                 <div
                                                     class="px-3 py-3 leading-loose lg:w-1/2 md:w-full sm:w-full w-full">
                                                     
                                                     <div class="mt-4">
                                                         <label class="block text-sm text-gray-600"
                                                             for="email">Email:</label>
-                                                        <input class="w-full p-2 text-gray-900 bg-gray-200 rounded-xl" value="<%=email%>"
+                                                        <input class="focus:shadow-soft-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-size-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none" value="<%=email%>"
                                                             id="email" name="email" type="text" 
                                                             placeholder="Costo del evento">
                                                     </div>
                                                     <input class="w-full p-2 text-white"
                                                             id="email" name="nombre" type="hidden" placeholder="<%=nombre%>" required="" value="<%=nombre%>">
                                                     <input class="w-full p-2 text-white"
+                                                            id="email" name="apellidop" type="hidden" placeholder="<%=apellidop%>" required="" value="<%=apellidop%>">
+                                                    <input class="w-full p-2 text-white"
+                                                            id="email" name="apellidom" type="hidden" placeholder="<%=apellidom%>" required="" value="<%=apellidom%>">
+                                                    <input class="w-full p-2 text-white"
+                                                            id="email" name="especialidad" type="hidden" placeholder="<%=especialidad%>" required="" value="<%=especialidad%>">
+                                                    <input class="w-full p-2 text-white"
                                                             id="email" name="id" type="hidden" placeholder="<%=id%>" required="" value="<%=id%>">
                                                     <div class="mt-4">
                                                         <label class="block text-sm text-gray-600"
                                                             for="email">Codigo:</label>
-                                                        <input class="w-full p-2 text-gray-900 bg-gray-200 rounded-xl" 
+                                                        <input class="focus:shadow-soft-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-size-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none" 
                                                             id="message" name="password" type="text" 
                                                             placeholder="CIP 2022">
                                                     </div>
-                                                  <div class="mt-4">
+                                                    <div class="mt-4">
                                                         <label class="block text-sm text-gray-600"
-                                                            for="email">Rol:</label>
-                                                        <input class="w-full p-2 text-gray-700 bg-gray-200 rounded-xl" 
-                                                            id="email" name="rol" type="text" 
-                                                            placeholder="rol del admitido">
+                                                            for="Especialidad">Rol:</label>
+                                                        <select choice
+                                                            class="focus:shadow-soft-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-size-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none"
+                                                            name="rol" id="email">
+                                                            <option value="Colegiado">Colegiado</option>
+                                                            
+                                                         </select>
                                                     </div>
                                                     <div
                                                     class="px-3 py-2 flex justify-center leading-loose lg:w-full md:w-full sm:w-full w-full">

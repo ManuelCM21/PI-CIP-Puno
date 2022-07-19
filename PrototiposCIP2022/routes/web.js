@@ -152,11 +152,11 @@ router.post('/agregar', function (req, res, next) {
 })
 
 // delete evento
-router.get('/delete/(:id)', function (req, res, next) {
+router.get('/delete/(:ideve)', function (req, res, next) {
 
-    let id = req.params.id;
+    let ideve = req.params.ideve;
 
-    dbConn.query('DELETE FROM eventos WHERE id = ' + id, function (err, result) {
+    dbConn.query('DELETE FROM eventos WHERE ideve = ' + ideve, function (err, result) {
         //if(err) throw err
         if (err) {
             // set flash message
@@ -165,7 +165,7 @@ router.get('/delete/(:id)', function (req, res, next) {
             res.redirect('/pages/eventos')
         } else {
             // set flash message
-            req.flash('success', 'Evento eliminado con éxito! ID = ' + id)
+            req.flash('success', 'Evento eliminado con éxito! ID = ' + ideve)
 
             // redirect to books page
             res.redirect('/pages/eventos')
@@ -174,27 +174,27 @@ router.get('/delete/(:id)', function (req, res, next) {
 })
 
 // display edit book page
-router.get('/edit/(:id)', function (req, res, next) {
+router.get('/edit/(:ideve)', function (req, res, next) {
 
-    let id = req.params.id;
+    let ideve = req.params.ideve;
 
     res.locals.nombre = req.session.nombre;
     res.locals.email = req.session.email;
     res.locals.rol = req.session.rol;
 
-    dbConn.query('SELECT * FROM eventos WHERE id = ' + id, function (err, rows, fields) {
+    dbConn.query('SELECT * FROM eventos WHERE ideve = ' + ideve, function (err, rows, fields) {
 
         console.log(rows[0]);
         // if user not found
         if (rows.length <= 0) {
-            req.flash('error', 'Book not found with id = ' + id)
+            req.flash('error', 'Book not found with ideve = ' + ideve)
             res.redirect('/pages/eventos')
         }
         // if book found
         else {
             // render to edit.ejs
             res.render('sub-page/actualizar-evento', {
-                id: rows[0].id,
+                ideve: rows[0].ideve,
                 nombre: rows[0].nombre,
                 descripcion: rows[0].descripcion,
                 ponente: rows[0].ponente,
@@ -210,14 +210,14 @@ router.get('/edit/(:id)', function (req, res, next) {
 })
 
 // update evento
-router.post('/update/(:id)', function (req, res, next) {
+router.post('/update/(:ideve)', function (req, res, next) {
 
     res.locals.nombre = req.session.nombre;
     res.locals.email = req.session.email;
     res.locals.rol = req.session.rol;
 
     console.log(req.body);
-    let id = req.params.id;
+    let ideve = req.params.ideve;
     let nombre = req.body.nombre;
     let descripcion = req.body.descripcion;
     let ponente = req.body.ponente;
@@ -244,14 +244,14 @@ router.post('/update/(:id)', function (req, res, next) {
             imagen: imagen
         }
         // update query
-        dbConn.query('UPDATE eventos SET ? WHERE id = ' + id, form_data, function (err, result) {
+        dbConn.query('UPDATE eventos SET ? WHERE ideve = ' + ideve, form_data, function (err, result) {
             //if(err) throw err
             if (err) {
                 // set flash message
                 req.flash('error', err)
                 // render to edit.ejs
                 res.render('sub-page/actualizar-evento', {
-                    id: req.params.id,
+                    ideve: req.params.ideve,
                     nombre: nombre,
                     descripcion: descripcion,
                     ponente: ponente,
@@ -269,5 +269,6 @@ router.post('/update/(:id)', function (req, res, next) {
         })
     }
 })
+
 
 module.exports = router;

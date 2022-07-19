@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <link href="../assets/css/styles.css?v=1.0.3" rel="stylesheet" />
 
@@ -19,12 +20,12 @@
 
 <body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-200 text-black">
 
-    <%- include('../nav/navbar-asistencia'); %>
+    <%- include('../nav/navbar-notificacion'); %>
 
         <main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
             <!-- Navbar -->
             <nav class="flex flex-wrap items-center justify-between px-0 py-2 mx-6 mt-4 transition-all duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start sticky top-[1%] backdrop-saturate-[200%] backdrop-blur-[30px] bg-[hsla(0,0%,100%,0.8)] shadow-blur z-110"
-                navbar-main>
+                navbar-main navbar-scroll="true">
                 <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
                     <nav>
                         <!-- breadcrumb -->
@@ -33,9 +34,9 @@
                                 <a class="opacity-50 text-slate-700" href="javascript:;">Pages</a>
                             </li>
                             <li class="text-size-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
-                                aria-current="page">Asistencias / Confirmar Asistencia</li>
+                                aria-current="page">Notificaciones / Detalle</li>
                         </ol>
-                        <h6 class="mb-0 font-bold capitalize">Confirmar Asistencia</h6>
+                        <h6 class="mb-0 font-bold capitalize">Detalle</h6>
                     </nav>
 
                     <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
@@ -51,7 +52,6 @@
                                     placeholder="Type here..." />
                             </div>
                         </div>
-
                         <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
 
                             <li class="flex items-center">
@@ -197,51 +197,61 @@
                                 <main class="w-full flex-grow p-6">
                                     <div class="">
                                         <div class="w-full pr-0 lg:pr-2">
-                                            <form class="flex flex-wrap" action="/regisasis/<%=idasis%>" method="post">
-                                                <div
-                                                    class="px-3 py-3 leading-loose lg:w-1/2 md:w-full sm:w-full w-full">
-                                                    <div class="">
-                                                        <label class="block text-sm text-gray-600" for="usuario">Usuario
-                                                            con la que ingresó al evento:</label>
-                                                        <input class="w-full p-2 text-gray-700 bg-gray-200 rounded-xl"
-                                                            id="usuario" name="usuario" type="text" required=""
-                                                            placeholder="Nombre del usuario">
+                                            <div class="px-3 py-3 leading-loose md:w-full sm:w-full w-full">
+                                                <div class="">
+                                                    <h3 class="block text-sm text-black"
+                                                        for="name"><%=data[0].descripcion%></h3>
+                                                </div>
+
+                                                <div class="mt-4">
+                                                    
+                                                    <p class="flex block text-sm text-gray-600"
+                                                        for="message">
+                                                    <img src="../img/cip.png" width="5%" class="mr-2"><%=data[0].autor%> <br> Para:</p>
+                                                </div>
+
+                                                <% if(data[0].descripcion=="Respuesta de solicitud de inscripción al evento") { %> 
+                                                <div class="mt-2">
+                                                    <label class="block text-sm text-gray-600"
+                                                        for="email">Hola <span class="font-bold"><%=nombre%></span> la solicitud que realizó con asunto <%=data[0].descripcion%> fue <%=estado%></label>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <h5 class="block text-sm text-black"
+                                                        for="email">Detalle de la Solicitud:</h5>
+                                                    <label for="">
+                                                        Participante: <%=nombre%> <br>
+                                                        Correo: <%=email%> <br>
+                                                        Dirección: <%=direccion%> <br>
+                                                        Asunto: <%=data[0].descripcion%> <br>
+                                                        Estado: <%=estado%> <br>
+                                                    </label>
+                                                </div>
+                                                <% } else { %>
+                                                    <div class="mt-2">
+                                                        <label class="block text-sm text-gray-600"
+                                                            for="email">Hola <span class="font-bold"><%=nombre%></span> necesita confirma su asistencia al evento</label>
                                                     </div>
                                                     <div class="mt-4">
-                                                        <label class=" block text-sm text-gray-600" for="email">Correo
-                                                            Electrónico:</label>
-                                                        <input class="w-full p-2 text-gray-700 bg-gray-200 rounded-xl"
-                                                            id="email" name="email" type="text" required=""
-                                                            placeholder="example@gmail.com">
+                                                        <h5 class="block text-sm text-black"
+                                                            for="email">Detalle de la Solicitud:</h5>
+                                                        <label for="">
+                                                            Participante: <%=nombre%> <br>
+                                                            Correo: <%=email%> <br>
+                                                            Asunto: <%=data[0].descripcion%> <br> <br>
+                                                            Dirijase a la tabla de asistencia y registre su participación al evento escogido<br>
+                                                        </label>
                                                     </div>
-                                                    <div class="mt-2">
-                                                        <label class="block text-sm text-gray-600" for="celular">Número
-                                                            de celular:</label>
-                                                        <input class="w-full p-2 text-gray-700 bg-gray-200 rounded-xl"
-                                                            id="celular" name="celular" type="text" required=""
-                                                            placeholder="Número de celular">
-                                                    </div>
-                                                </div>
-                                                <div class="lg:w-1/2">
-                                                    <div class="flex items-center justify-center w-full">
-                                                        <div class="">
-                                                            <div class="flex items-center justify-center w-full">
-                                                                <img src="../eventos/Evento.png" class="rounded-2xl"
-                                                                    width="100%">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="px-3 py-2 flex justify-center leading-loose lg:w-full md:w-full sm:w-full w-full">
-                                                    <button type="submit"
-                                                        class="px-3 py-4 flex text-sm text-white rounded-xl shadow-soft-2xl"
-                                                        style="background-color: rgb(85, 88, 86); margin: 2px;">
-                                                        <img src="../img/guardar.png" width="25" class="mr-2"> Guardar
-                                                        Asistencia
-                                                    </button>
-                                                </div>
-                                            </form>
+                                                    <% } %>
+
+                                            </div>
+                                            <div
+                                                class="px-3 py-2 flex justify-end leading-loose lg:w-full md:w-full sm:w-full w-full">
+                                                <a href="/pages/notificacion"
+                                                    class="px-3 py-4 flex text-sm text-white rounded-xl shadow-soft-2xl"
+                                                    style="background-color: rgb(33, 33, 33); margin: 2px;">
+                                                    <img src="../img/aceptar.png" width="25" class="mr-2">Aceptar</a>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </main>
@@ -251,7 +261,6 @@
                 </div>
             </div>
         </main>
-
         <div fixed-plugin>
             <a fixed-plugin-button
                 class="bottom-7.5 right-7.5 text-size-xl z-990 shadow-soft-lg rounded-circle fixed cursor-pointer bg-white px-4 py-2 text-slate-700">
@@ -348,18 +357,6 @@
             </div>
         </div>
         </div>
-
-        <script>
-
-            function fireSweetAlert() {
-                Swal.fire(
-                    '',
-                    'Se registró correctamente',
-                    'success',
-                )
-            }
-
-        </script>
 </body>
 <!-- github button -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
