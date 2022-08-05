@@ -49,7 +49,17 @@ router.get('/pages/dashboard', function (req, res, next) {
   } else {
     res.locals.email = req.session.email;
     res.locals.rol = req.session.rol;
-    res.render('pages/dashboard');
+    var queries = [
+      "SELECT COUNT(rol) as total FROM usuarios WHERE rol = 'Colegiado'"
+    ];
+    dbConn.query(queries.join(';'), function (err, rows) {
+      //console.log(rows[0].total);
+      if (err) throw err;
+      //console.log(rows[0][0].cantidad);
+      res.render('pages/dashboard', { 
+        total: rows[0]["total"]
+      });
+    });
   }
 });
 
